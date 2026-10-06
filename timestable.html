@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <script>
+        function multiples(table, startNum, rows) {
+
+            var output = "";
+
+            for (let i = 0; i < rows; i++) {
+                output = output + table + " x " + (startNum + i) + " = " + (table * (startNum + i)) + "<br>";
+            }
+
+            return output;
+        }
+
+        function main() {
+            var table_input = Number(document.getElementById("table").value);
+            var start_input = Number(document.getElementById("start").value);
+            var rows_input = Number(document.getElementById("rows").value);
+            var table_output = document.getElementById("table_output");
+            var html_output = multiples(table_input, start_input, rows_input);
+            table_output.innerHTML = html_output;
+
+            return false;
+        }
+
+    </script>
+
+    <form action="timestable.html" onsubmit="return main();">
+
+        <ol>
+            <li>Table: <input type="number" id="table" name="table"></li>
+            <li>Start Number: <input type="number" id="start" name="start"></li>
+            <li>Rows: <input type="number" id="rows" name="rows"></li>
+        </ol>
+
+        <input type="submit">
+
+    </form>
+
+    <div id="table_output"></div>
+
+</body>
+</html>
